@@ -17,7 +17,7 @@ class Info extends ConfigurableInfo
      * @param string $field
      * @return Phrase
      */
-    protected function getLabel($field)
+    protected function getLabel($field): Phrase
     {
         return __($field);
     }

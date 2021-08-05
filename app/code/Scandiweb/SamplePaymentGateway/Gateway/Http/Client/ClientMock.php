@@ -17,7 +17,7 @@ class ClientMock implements ClientInterface
     /**
      * @var array
      */
-    private $results = [
+    private array $results = [
         self::SUCCESS,
         self::FAILURE
     ];
@@ -42,7 +42,7 @@ class ClientMock implements ClientInterface
      * @param TransferInterface $transferObject
      * @return array
      */
-    public function placeRequest(TransferInterface $transferObject)
+    public function placeRequest(TransferInterface $transferObject): array
     {
         $response = $this->generateResponseForCode(
             $this->getResultCode(
@@ -65,7 +65,7 @@ class ClientMock implements ClientInterface
      *
      * @return array
      */
-    protected function generateResponseForCode($resultCode)
+    protected function generateResponseForCode($resultCode): array
     {
 
         return array_merge(
@@ -80,7 +80,7 @@ class ClientMock implements ClientInterface
     /**
      * @return string
      */
-    protected function generateTxnId()
+    protected function generateTxnId(): string
     {
         return md5(mt_rand(0, 1000));
     }
@@ -91,7 +91,7 @@ class ClientMock implements ClientInterface
      * @param TransferInterface $transfer
      * @return int
      */
-    private function getResultCode(TransferInterface $transfer)
+    private function getResultCode(TransferInterface $transfer): int
     {
         $headers = $transfer->getHeaders();
 

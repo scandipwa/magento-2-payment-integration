@@ -5,17 +5,18 @@
  */
 namespace Scandiweb\SamplePaymentGateway\Model\Adminhtml\Source;
 
+use Magento\Framework\Option\ArrayInterface;
 use Magento\Payment\Model\MethodInterface;
 
 /**
  * Class PaymentAction
  */
-class PaymentAction implements \Magento\Framework\Option\ArrayInterface
+class PaymentAction implements ArrayInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function toOptionArray()
+    public function toOptionArray(): array
     {
         return [
             [

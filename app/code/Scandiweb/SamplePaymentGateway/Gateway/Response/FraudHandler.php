@@ -32,7 +32,6 @@ class FraudHandler implements HandlerInterface
             throw new \InvalidArgumentException('Payment data object should be provided');
         }
 
-        /** @var PaymentDataObjectInterface $paymentDO */
         $paymentDO = $handlingSubject['payment'];
         $payment = $paymentDO->getPayment();
 

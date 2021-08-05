@@ -15,7 +15,7 @@ class TransferFactory implements TransferFactoryInterface
     /**
      * @var TransferBuilder
      */
-    private $transferBuilder;
+    private TransferBuilder $transferBuilder;
 
     /**
      * @param TransferBuilder $transferBuilder
@@ -39,9 +39,7 @@ class TransferFactory implements TransferFactoryInterface
             ->setMethod('POST')
             ->setHeaders(
                 [
-                    'force_result' => isset($request[MockDataRequest::FORCE_RESULT])
-                        ? $request[MockDataRequest::FORCE_RESULT]
-                        : null
+                    'force_result' => $request[MockDataRequest::FORCE_RESULT] ?? null
                 ]
             )
             ->build();

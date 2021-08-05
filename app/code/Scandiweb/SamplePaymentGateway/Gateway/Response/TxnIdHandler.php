@@ -7,6 +7,7 @@ namespace Scandiweb\SamplePaymentGateway\Gateway\Response;
 
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 use Magento\Payment\Gateway\Response\HandlerInterface;
+use Magento\Sales\Model\Order\Payment;
 
 class TxnIdHandler implements HandlerInterface
 {
@@ -27,12 +28,11 @@ class TxnIdHandler implements HandlerInterface
             throw new \InvalidArgumentException('Payment data object should be provided');
         }
 
-        /** @var PaymentDataObjectInterface $paymentDO */
         $paymentDO = $handlingSubject['payment'];
 
         $payment = $paymentDO->getPayment();
 
-        /** @var $payment \Magento\Sales\Model\Order\Payment */
+        /** @var $payment Payment */
         $payment->setTransactionId($response[self::TXN_ID]);
         $payment->setIsTransactionClosed(false);
     }
